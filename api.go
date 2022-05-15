@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
 	"strings"
@@ -51,22 +52,28 @@ func api() {
 
 	// self handler
 	router.HandleFunc("/self", selfHandler).Methods("GET")
-
 	router.HandleFunc("/self/", selfHandler).Methods("GET")
 
 	// hashtag handler
 	router.HandleFunc("/t", homeHandler).Methods("GET")
-
 	router.HandleFunc("/t/", homeHandler).Methods("GET")
 
 	router.HandleFunc("/t/{thisHashtag}", hashtagHandler).Methods("GET")
-
 	router.HandleFunc("/t/{thisHashtag}/", hashtagHandler).Methods("GET")
 
 	// new post handler
 	router.HandleFunc("/post", newPostHandler).Methods("POST")
-
 	router.HandleFunc("/post/", newPostHandler).Methods("POST")
+
+	// public api handler
+	router.HandleFunc("/api/posts/all", postFirehoseHandler).Methods("GET")
+	router.HandleFunc("/api/posts/all/", postFirehoseHandler).Methods("GET")
+
+	router.HandleFunc("/api/tags/all", tagFirehoseHandler).Methods("GET")
+	router.HandleFunc("/api/tags/all/", tagFirehoseHandler).Methods("GET")
+
+	router.HandleFunc("/api/info", infoHandler).Methods("GET")
+	router.HandleFunc("/api/info/", infoHandler).Methods("GET")
 
 	// send it brah
 	log.Fatal(http.ListenAndServe(":8666", handlers.CORS(headersCORS, originsCORS, methodsCORS)(router)))
@@ -146,6 +153,57 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 
 	// take the data payload and apply it to the theme
 	t.Execute(w, hd)
+
+}
+
+func postFirehoseHandler(w http.ResponseWriter, r *http.Request) {
+
+	// heads up, this is gonna be json
+	w.Header().Set("Content-Type", "application/json")
+
+	// send it
+	json.NewEncoder(w).Encode(Posts)
+
+}
+
+func tagFirehoseHandler(w http.ResponseWriter, r *http.Request) {
+
+	// heads up, this is gonna be json
+	w.Header().Set("Content-Type", "application/json")
+
+	// send it
+	json.NewEncoder(w).Encode(Tags)
+
+}
+
+func infoHandler(w http.ResponseWriter, r *http.Request) {
+
+	type infoPack struct {
+		CurrentGlobalUsersCount int `json:"current_global_users_count,omitempty"`
+		CurrentGlobalPostsCount int `json:"current_global_posts_count,omitempty"`
+		CurrentGlobalTagsCount  int `json:"current_global_tags_count,omitempty"`
+		MaxGlobalPosts          int `json:"max_global_posts,omitempty"`
+		MaxPostsOnMainFeed      int `json:"max_posts_on_main_feed,omitempty"`
+		MaxPostsOnSelfFeed      int `json:"max_posts_on_self_feed,omitempty"`
+		MaxTags                 int `json:"max_tags,omitempty"`
+	}
+
+	// make an empty infopack
+	var ip infoPack
+
+	ip.CurrentGlobalUsersCount = len(Users)
+	ip.CurrentGlobalPostsCount = len(Posts)
+	ip.CurrentGlobalTagsCount = len(Tags)
+	ip.MaxGlobalPosts = maxGlobalPosts
+	ip.MaxPostsOnMainFeed = maxPostsOnMainFeed
+	ip.MaxPostsOnSelfFeed = maxPostsOnSelfFeed
+	ip.MaxTags = maxTags
+
+	// heads up, this is gonna be json
+	w.Header().Set("Content-Type", "application/json")
+
+	// send it
+	json.NewEncoder(w).Encode(ip)
 
 }
 
