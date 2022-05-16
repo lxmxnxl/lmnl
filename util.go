@@ -135,9 +135,8 @@ func init() {
 	// run api in a non blocking goroutine
 	go api()
 
-	// make some type of output
-	log.Println("Let's get liminal! liminal!")
-
+	// announce the admin creds
+	announceAdminCreds()
 	// do not exit
 	select {}
 }
