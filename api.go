@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"log"
 	"net/http"
 	"strings"
@@ -75,8 +76,114 @@ func api() {
 	router.HandleFunc("/api/info", infoHandler).Methods("GET")
 	router.HandleFunc("/api/info/", infoHandler).Methods("GET")
 
+	// http://localhost:8666/api/admin/delete/jolly-violet-warm-laugh/96de70b40f88c88f030078b8
+	router.HandleFunc("/api/admin/"+adminTicket+"/delete/{itemlabel}", adminHandler).Methods("GET")
+	router.HandleFunc("/api/admin/"+adminTicket+"/delete/{itemlabel}/", adminHandler).Methods("GET")
+	router.HandleFunc("/"+adminTicket+"/delete/{itemlabel}", adminHandler).Methods("GET")
+	router.HandleFunc("/"+adminTicket+"/delete/{itemlabel}/", adminHandler).Methods("GET")
+
 	// send it brah
 	log.Fatal(http.ListenAndServe(":8666", handlers.CORS(headersCORS, originsCORS, methodsCORS)(router)))
+
+}
+
+func adminHandler(w http.ResponseWriter, r *http.Request) {
+
+	log.Println("Admin ticket: ", adminTicket)
+
+	// get the var from the url
+	vars := mux.Vars(r)
+
+	// get a blank set of posts
+	var newPosts []Post
+
+	// get a blank set of tags
+	var newTags []string
+
+	// this is the item label we want
+	itemLabel := vars["itemlabel"]
+
+	var errorMsg []string
+
+	// loop through the posts we see
+	for i, s := range Posts {
+
+		// compare the label of the post we want to remove
+		if strings.Compare(itemLabel, s.Label) == 0 {
+
+			// mourn the dead
+			log.Println("Item ", i, " marked for deletion.")
+
+			// make a new list but without this one guy
+			newPosts = append(newPosts[:i], newPosts[i+1:]...)
+
+			// Length of Posts
+			log.Println("Length of Posts: ", len(Posts))
+
+			// Length of NewPosts
+			log.Println("Length of Posts: ", len(newPosts))
+
+			// just for shits and giggles lets check if posts and newposts have the correct number
+			if len(newPosts) != len(Posts)-1 {
+
+				errorMsg = append(errorMsg, "Deleted Posts count mismatch. ")
+
+				// for all we know someone could have posted in this time.
+				log.Println("Huh, thats weird, did we delete too many?")
+
+			}
+
+		} else {
+
+			log.Println("Post not present with this label. ")
+
+			errorMsg = append(errorMsg, "Post ID not present. ")
+
+		}
+
+	}
+
+	// loop through the tags we see
+	for i, s := range Tags {
+
+		// compare the label of the post we want to remove
+		if strings.Compare(itemLabel, s) == 0 {
+
+			// mourn the dead
+			log.Println("Item ", i, " marked for deletion.")
+
+			// make a new list but without this one guy
+			newTags = append(newTags[:i], newTags[i+1:]...)
+
+			// Length of Posts
+			log.Println("Length of Tags: ", len(Tags))
+
+			// Length of newTags
+			log.Println("Length of newTags: ", len(newTags))
+
+			// just for shits and giggles lets check if posts and newposts have the correct number
+			if len(newTags) != len(Tags)-1 {
+
+				errorMsg = append(errorMsg, "Delete Tags count mismatch. ")
+
+				// for all we know someone could have posted in this time.
+				log.Println("Huh, thats weird, did we delete too many?")
+
+			}
+
+		} else {
+
+			log.Println("Post not present with this label. ")
+
+			errorMsg = append(errorMsg, "Post ID not present. ")
+
+		}
+
+	}
+
+	completeErr := strings.Join(errorMsg, "\n")
+
+	fmt.Fprint(w, "\""+completeErr+"\"")
 
 }
 

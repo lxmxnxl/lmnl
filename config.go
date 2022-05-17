@@ -15,5 +15,8 @@ var (
 	// this is the max number of tag topic communities at any given time
 	maxTags = 100
 
+	// this is the phrase used to authenticate an admin
+	adminTicket = ""
 )
-// 
+
+//

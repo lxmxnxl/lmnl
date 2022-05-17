@@ -137,6 +137,7 @@ func init() {
 
 	// announce the admin creds
 	announceAdminCreds()
+
 	// do not exit
 	select {}
 }

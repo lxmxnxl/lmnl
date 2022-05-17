@@ -21,6 +21,8 @@ func announceAdminCreds() {
 
 	log.Println("Your admin credential is: " + adminStr)
 
+	adminTicket = adminStr
+
 }
 
 func roll(min, max int) int {
