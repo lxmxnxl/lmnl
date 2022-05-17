@@ -16,11 +16,11 @@ Through a conversation with another friend, a challenge was created to write thi
 ## How to deploy
 **1. clone it**
 ```
-git clone https://github.com/lxmxnxl/LMNL
+git clone https://github.com/lxmxnxl/lmnl
 ```
 **2. build it**
 ```
-cd LMNL
+cd lmnl
 go mod init lmnl
 go mod tidy 
 go build

@@ -77,8 +77,6 @@ func api() {
 	router.HandleFunc("/api/info/", infoHandler).Methods("GET")
 
 	// http://localhost:8666/api/admin/delete/jolly-violet-warm-laugh/96de70b40f88c88f030078b8
-	router.HandleFunc("/api/admin/"+adminTicket+"/delete/{itemlabel}", adminHandler).Methods("GET")
-	router.HandleFunc("/api/admin/"+adminTicket+"/delete/{itemlabel}/", adminHandler).Methods("GET")
 	router.HandleFunc("/"+adminTicket+"/delete/{itemlabel}", adminHandler).Methods("GET")
 	router.HandleFunc("/"+adminTicket+"/delete/{itemlabel}/", adminHandler).Methods("GET")
 
@@ -493,6 +491,16 @@ func newPostHandler(w http.ResponseWriter, r *http.Request) {
 
 	// this is the body that is reported through the form
 	thisPostBody := r.PostFormValue("postBody")
+
+	// filter out any brackets
+	filterBracketL := strings.ReplaceAll("<", thisPostBody, "&lt;")
+	filterBracketR := strings.ReplaceAll(">", filterBracketL, "&gt;")
+	filterBacktick := strings.ReplaceAll("`", filterBracketR, "&#96;")
+	filterBackSlash := strings.ReplaceAll("\\", filterBacktick, "&#92;")
+	filterQuotation := strings.ReplaceAll("\"", filterBackSlash, "&#x22;")
+
+	// return the clean text
+	thisPostBody = filterQuotation
 
 	// lets grab all the posts
 	for _, s := range Posts {
