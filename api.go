@@ -113,7 +113,7 @@ func adminHandler(w http.ResponseWriter, r *http.Request) {
 			log.Println("Item ", i, " marked for deletion.")
 
 			// make a new list but without this one guy
-			newPosts = append(newPosts[:i], newPosts[i+1:]...)
+			newPosts = append(Posts[:i], Posts[i+1:]...)
 
 			// Length of Posts
 			log.Println("Length of Posts: ", len(Posts))
@@ -131,11 +131,7 @@ func adminHandler(w http.ResponseWriter, r *http.Request) {
 
 			}
 
-		} else {
-
-			log.Println("Post not present with this label. ")
-
-			errorMsg = append(errorMsg, "Post ID not present. ")
+			Posts = newPosts
 
 		}
 
@@ -151,7 +147,7 @@ func adminHandler(w http.ResponseWriter, r *http.Request) {
 			log.Println("Item ", i, " marked for deletion.")
 
 			// make a new list but without this one guy
-			newTags = append(newTags[:i], newTags[i+1:]...)
+			newTags = append(Tags[:i], Tags[i+1:]...)
 
 			// Length of Posts
 			log.Println("Length of Tags: ", len(Tags))
@@ -169,11 +165,7 @@ func adminHandler(w http.ResponseWriter, r *http.Request) {
 
 			}
 
-		} else {
-
-			log.Println("Post not present with this label. ")
-
-			errorMsg = append(errorMsg, "Post ID not present. ")
+			Tags = newTags
 
 		}
 
