@@ -275,18 +275,10 @@ func tagFirehoseHandler(w http.ResponseWriter, r *http.Request) {
 
 func infoHandler(w http.ResponseWriter, r *http.Request) {
 
-	type infoPack struct {
-		CurrentGlobalUsersCount int `json:"current_global_users_count,omitempty"`
-		CurrentGlobalPostsCount int `json:"current_global_posts_count,omitempty"`
-		CurrentGlobalTagsCount  int `json:"current_global_tags_count,omitempty"`
-		MaxGlobalPosts          int `json:"max_global_posts,omitempty"`
-		MaxPostsOnMainFeed      int `json:"max_posts_on_main_feed,omitempty"`
-		MaxPostsOnSelfFeed      int `json:"max_posts_on_self_feed,omitempty"`
-		MaxTags                 int `json:"max_tags,omitempty"`
-	}
-
 	// make an empty infopack
-	var ip infoPack
+	var ip InfoPack
+	var ai AppInfo
+	var pl payload
 
 	ip.CurrentGlobalUsersCount = len(Users)
 	ip.CurrentGlobalPostsCount = len(Posts)
@@ -296,11 +288,21 @@ func infoHandler(w http.ResponseWriter, r *http.Request) {
 	ip.MaxPostsOnSelfFeed = maxPostsOnSelfFeed
 	ip.MaxTags = maxTags
 
+	ai.VersionInfo = versionInfo
+	ai.AdminContact = adminContact
+	ai.SiteURL = siteURL
+	ai.SiteTitle = siteTitle
+	ai.SiteDescription = siteDescription
+	ai.SiteMediaPreview = siteMediaPreview
+
+	pl.ThisInfo = ip
+	pl.ThisApp = ai
+
 	// heads up, this is gonna be json
 	w.Header().Set("Content-Type", "application/json")
 
 	// send it
-	json.NewEncoder(w).Encode(ip)
+	json.NewEncoder(w).Encode(pl)
 
 }
 
