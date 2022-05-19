@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="en">
+  <head>
+
+    <title>&#x25EF; lmnl.</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="conversations in liminal space">
+    <meta name="twitter:image:src" content="https://user-images.githubusercontent.com/96031819/168922056-5d98c05a-929d-4326-8c11-7f71b4241297.png" />
+    <meta name="twitter:title" content="lmnl." />
+    <meta name="twitter:description" content="conversations in liminal space" />
+    <meta name="hostname" content="lxmxnxl.com">
+    <meta name="color-scheme" content="light" />
+    <meta property="og:image" content="https://user-images.githubusercontent.com/96031819/168922056-5d98c05a-929d-4326-8c11-7f71b4241297.png" />
+    <meta property="og:image:alt" content="lmnl. | conversations in liminal space" />
+    <meta property="og:site_name" content="lmnl." />
+    <meta property="og:type" content="object" />
+    <meta property="og:title" content="lmnl." />
+    <meta property="og:url" content="https://github.com/lxmxnxl/lmnl" />
+    <meta property="og:description" content="conversations in liminal space" />
+
+    <style>
+      @charset "UTF-8";
+/*!
+ * Bootstrap v5.2.0-beta1 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
+:root {
+  --bs-border-width: 1px;
+  --bs-border-style: solid;
+  --bs-border-color: #dee2e6;
+  --bs-border-color-translucent: rgba(0, 0, 0, 0.175);
+  --bs-border-radius: 0.375rem;
+  --bs-border-radius-sm: 0.25rem;
+  --bs-border-radius-lg: 0.5rem;
+  --bs-border-radius-xl: 1rem;
+  --bs-border-radius-2xl: 2rem;
+  --bs-border-radius-pill: 50rem;
+  --bs-heading-color: ;
+  --bs-link-color: #000;
+  --bs-link-hover-color: #333;
+  --bs-code-color: #d63384;
+  --bs-highlight-bg: #fff3cd;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :root {
+    scroll-behavior: smooth;
+  }
+}
+
+ h3, .h3, h1, .h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--bs-heading-color);
+}
+
+h1, .h1 {
+  font-size: calc(1.375rem + 1.5vw);
+}
+@media (min-width: 1200px) {
+  h1, .h1 {
+    font-size: 2.5rem;
+  }
+}
+
+h3, .h3 {
+  font-size: calc(1.3rem + 0.6vw);
+}
+@media (min-width: 1200px) {
+  h3, .h3 {
+    font-size: 1.75rem;
+  }
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+
+strong {
+  font-weight: bolder;
+}
+
+
+sup {
+  position: relative;
+  font-size: 0.75em;
+  line-height: 0;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+a {
+  color: var(--bs-link-color);
+  text-decoration: underline;
+}
+a:hover {
+  color: var(--bs-link-hover-color);
+}
+
+a:not([href]):not([class]), a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+code {
+  font-family: var(--bs-font-monospace);
+  font-size: 1em;
+}
+
+code {
+  font-size: 0.875em;
+  color: var(--bs-code-color);
+  word-wrap: break-word;
+}
+a > code {
+  color: inherit;
+}
+
+img {
+  vertical-align: middle;
+}
+
+button {
+  border-radius: 0;
+}
+
+button:focus:not(:focus-visible) {
+  outline: 0;
+}
+
+input,
+button,
+textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+button {
+  text-transform: none;
+}
+
+[list]:not([type=date]):not([type=datetime-local]):not([type=month]):not([type=week]):not([type=time])::-webkit-calendar-picker-indicator {
+  display: none !important;
+}
+
+button,
+[type=button],
+[type=submit] {
+  -webkit-appearance: button;
+}
+button:not(:disabled),
+[type=button]:not(:disabled),
+[type=submit]:not(:disabled) {
+  cursor: pointer;
+}
+
+::-moz-focus-inner {
+  padding: 0;
+  border-style: none;
+}
+
+textarea {
+  resize: vertical;
+}
+
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+  padding: 0;
+}
+
+::-webkit-inner-spin-button {
+  height: auto;
+}
+
+[type=search] {
+  outline-offset: -2px;
+  -webkit-appearance: textfield;
+}
+
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+::-webkit-file-upload-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+
+::file-selector-button {
+  font: inherit;
+  -webkit-appearance: button;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.container {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 576px) {
+   .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+   .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+   .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+   .container {
+    max-width: 1140px;
+  }
+}
+@media (min-width: 1400px) {
+   .container {
+    max-width: 1320px;
+  }
+}
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+
+.col {
+  flex: 1 0 0%;
+}
+
+.col-2 {
+  flex: 0 0 auto;
+  width: 16.66666667%;
+}
+
+.btn {
+  --bs-btn-padding-x: 0.75rem;
+  --bs-btn-padding-y: 0.375rem;
+  --bs-btn-font-family: ;
+  --bs-btn-font-size: 1rem;
+  --bs-btn-font-weight: 400;
+  --bs-btn-line-height: 1.5;
+  --bs-btn-color: #212529;
+  --bs-btn-bg: transparent;
+  --bs-btn-border-width: 1px;
+  --bs-btn-border-color: transparent;
+  --bs-btn-border-radius: 0.375rem;
+  --bs-btn-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15), 0 1px 1px rgba(0, 0, 0, 0.075);
+  --bs-btn-disabled-opacity: 0.65;
+  --bs-btn-focus-box-shadow: 0 0 0 0.25rem rgba(var(--bs-btn-focus-shadow-rgb), .5);
+  display: inline-block;
+  padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
+  font-family: var(--bs-btn-font-family);
+  font-size: var(--bs-btn-font-size);
+  font-weight: var(--bs-btn-font-weight);
+  line-height: var(--bs-btn-line-height);
+  color: var(--bs-btn-color);
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  border: var(--bs-btn-border-width) solid var(--bs-btn-border-color);
+  border-radius: var(--bs-btn-border-radius);
+  background-color: #fff;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+.btn:hover {
+  color: var(--bs-btn-hover-color);
+  background-color: #212529;
+  border-color: var(--bs-btn-hover-border-color);
+}
+ .btn:focus {
+  color: var(--bs-btn-hover-color);
+  background-color: #212529;
+  border-color: var(--bs-btn-hover-border-color);
+  outline: 0;
+  box-shadow: var(--bs-btn-focus-box-shadow);
+}
+ .btn:active {
+  color: var(--bs-btn-active-color);
+  background-color: #212529;
+  border-color: var(--bs-btn-active-border-color);
+}
+ .btn:active:focus {
+  box-shadow: var(--bs-btn-focus-box-shadow);
+}
+.btn:disabled {
+  color: var(--bs-btn-disabled-color);
+  pointer-events: none;
+  background-color: #212529;
+  border-color: var(--bs-btn-disabled-border-color);
+  opacity: var(--bs-btn-disabled-opacity);
+}
+
+.btn-outline-dark {
+  --bs-btn-color: #212529;
+  --bs-btn-border-color: #212529;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #212529;
+  --bs-btn-hover-border-color: #212529;
+  --bs-btn-focus-shadow-rgb: 33, 37, 41;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #212529;
+  --bs-btn-active-border-color: #212529;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #212529;
+  --bs-btn-disabled-bg: transparent;
+  --bs-gradient: none;
+}
+
+.btn-sm {
+  --bs-btn-padding-y: 0.25rem;
+  --bs-btn-padding-x: 0.5rem;
+  --bs-btn-font-size: 0.875rem;
+  --bs-btn-border-radius: 0.25rem;
+}
+
+.badge {
+  --bs-badge-padding-x: 0.65em;
+  --bs-badge-padding-y: 0.35em;
+  --bs-badge-font-size: 0.75em;
+  --bs-badge-font-weight: 700;
+  --bs-badge-color: #fff;
+  --bs-badge-border-radius: 0.375rem;
+  display: inline-block;
+  padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
+  font-size: var(--bs-badge-font-size);
+  font-weight: var(--bs-badge-font-weight);
+  line-height: 1;
+  color: var(--bs-badge-color);
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: var(--bs-badge-border-radius, 0);
+}
+.badge:empty {
+  display: none;
+}
+
+.btn .badge {
+  position: relative;
+  top: -1px;
+}
+
+
+.placeholder {
+  display: inline-block;
+  min-height: 1em;
+  vertical-align: middle;
+  cursor: wait;
+  background-color: currentcolor;
+  opacity: 0.5;
+}
+.placeholder.btn::before {
+  display: inline-block;
+  content: "";
+}
+
+.border {
+  border: var(--bs-border-width) var(--bs-border-style) var(--bs-border-color) !important;
+}
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+
+.text-decoration-none {
+  text-decoration: none !important;
+}
+
+.rounded-pill {
+  border-radius: var(--bs-border-radius-pill) !important;
+}
+
+      * {
+        font-family: serif;
+        border-radius: 5px;
+        text-transform: lowercase;
+      }
+      .hidden {
+        display:none;
+      }
+      .accented {
+        border: 2px #{{ slice .User.Session 0 6 }} solid;
+      }
+      .accented:hover {
+        background-color: #{{ slice .User.Session 0 6 }};
+        border: 2px #{{ slice .User.Session 0 6 }} solid;
+      }
+      .btn {
+        border-width:2px;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div id="lolwhat" class="hidden" style="position:absolute;left:0px;top:0px;width:100%;height:100%;background-color: #fff;z-index: 666;">
+
+      <div class="container" style="background-color: #fff;z-index: 666;">
+        <div class="row">
+          <div class="col">
+            <center>
+              <h1 class="mt-2 mb-4" style="cursor: pointer;" onclick="hideDiv('lolwhat')"><strong style="user-select: none">lmnl.</strong></h1>
+            </center>
+          </div>
+
+        </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <h3>huh?</h3>
+            <p>Just write a message and tag it, then hit post. That's it.</p>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <h3>why?</h3>
+            <p>It was an <a style="color: #000;" href="https://i.imgur.com/GK0qYLF.png" target="_blank">idea</a> from a conversation. Discussing it later with someone else, a challenge was created to write the entire site in 1 laptop charge or less.</p>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <h3>how?</h3>
+            <p>It's not important, but if you're into this kind of thing, it'll be going up on github soon. <code>lxmxnxl/lmnl </code></p>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <h3 style="text-transform: none;">"tHe AlGoRiThM"<sup>&reg;&trade;</sup></h3>
+            <p>&#183;&emsp;Every post with a hashtag in it is posted to the front page. The front page shows the most recent X number of chronological posts.</p>
+            <p>&#183;&emsp;Posts without tags end up on the self page. To see the self page, click around a bit. You'll find it 😉</p>
+            <p>&#183;&emsp;When you make a post with a hashtag, the tags from it go in the cloud at the top. Clicking one of those tags brings you to a list of the last X chronological posts on that tag community. You can also just do something like https://lxmxnxl.com/t/ask to see the <strong>#ask</strong> tag community.</p>
+            <p>&#183;&emsp;Posts with a bajillion tags can get spammy, and so can repeated or empty posts, so those may get hung up somewhere, and aside from the first few tags, the rest go away.</p>
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col">
+            <h3>Other details.</h3>
+            <p>Everything you see on this site is ephemeral&mdash; a conversation in <a style="color: #000000;text-decoration:none;"  href="https://www.bing.com/search?q=liminal+space&form=QBLH&sp=-1&ghc=1&pq=liminal+space&sc=8-13&qs=n&sk=&cvid=1DB5011CAAE8418CB7626E19CA7F8512">liminal space.. </a></p>
+            <p>If a post can no longer be seen on the front page, or on a tag page, it's gone forever. There are no accounts, no profiles, no database, no hard drive, and everything is held in RAM. If there is a malfunction, a bug, an upgrade, or enough time passes, everything goes away, unable to be seen or retrieved.</p>
+          </div>
+        </div>
+
+        <div class="row mb-4">
+          <div class="col">
+            <h1 style="cursor:pointer;" onclick="hideDiv('lolwhat')">back.</h1>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container">
+
+      <div class="row">
+
+        <div class="col">
+          <h1 class="mt-2" style="cursor: pointer;" onclick="parent.location='/'"><strong style="user-select: none">lmnl.</strong></h1>
+        </div>
+
+        <div class="col">
+          <h1 style="float:right;"><button class="btn btn-sm btn-outline-dark" onClick="showDiv('postDiv');">+ post</button>&nbsp;<button class="btn btn-sm accented btn-outline-dark" onclick="spinner()" style="background-color:#{{ slice .User.Session 0 6 }};">&emsp;</button></h1>
+        </div>
+
+      </div>
+
+      <center>
+
+        <div id="postDiv" class="hidden row">
+          <div id="postCol" class="hidden col">
+            <form action="/post" style="text-transform: none;" method="post">
+            <textarea style="text-transform: none;padding:1rem; font-family:sans-serif; border: 2px #333 solid;" name="postBody" id="postBody" placeholder="..." cols="30" rows="8"></textarea>
+              <div class="row" style="margin-top: 4px;">
+                <div class="input-group mb-3">
+                  <input type="file" name="" id="fileId" onchange="imageUploaded()" aria-label="image" aria-describedby="imageencode"  class="btn-outline-dark" >
+                  <button  class="btn btn-sm btn-outline-dark" type="button" id="imageencode">encode</button>
+                </div>
+                <div class="col mb-3 ">
+                  <input type="hidden" id="postSession" name="postSession" value="{{ .User.Session }}">
+                  <input type="submit" class="btn btn-sm btn-outline-dark" value="&nbsp;+ post&nbsp;">
+                </div>
+                
+              </div>   
+            </form>       
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col">
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col" style="margin-bottom: 4px; padding: 0.5em;">
+              {{ range .Tags }} <span class="mb-2 badge rounded-pill" style="text-transform: none;border: 2px #333 solid"><a href="/t/{{ . }}" class="text-decoration-none no-decoration"><span style="text-transform: none;color: #333; font-family: sans-serif;" >#{{ . }}</span></a></span>{{ end }}
+              </div>
+              <div class="col-2"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mb-2 ">
+          <div class="col">
+            <h1 ondblclick="parent.location='/self'" style="user-select: none"><strong style="user-select: none">feed.</strong></h1>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col">
+            {{ range .Posts }} 
+            <div class="row">
+              <div class="col-2"></div>
+              <div class="col" style="text-transform: none;margin-bottom: 4px; padding: 0.5em; border: 4px solid; border-color: #{{ slice .Owner 0 6 }};">
+                <span style="text-transform: none;font-family: sans-serif;" title="{{ .Label }}">{{ .Content }}</span>
+              </div>
+              <div class="col-2"></div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+
+      </center>    
+    
+    </div>
+
+    <div style="position:absolute;right:1em;bottom: 1em;">
+
+      <div onclick="showDiv('lolwhat')" style="border-radius: 100%; cursor:pointer;" alt=""><h1>?</h1></div>
+
+    </div>
+
+    <script type="text/javascript">
+    
+      function showDiv(divname) {
+      
+        if ( divname == "postDiv") {
+
+          showDiv('postCol')
+
+        }
+
+        document.getElementById(divname).classList.remove("hidden")
+      
+      }
+      
+      function hideDiv(divname) {
+      
+        document.getElementById(divname).classList.add("hidden")
+        
+      }
+
+      function spinner() {
+
+        document.cookie = "LIMINAL_SPACE_SESSION=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+        window.location.reload(true)
+
+      }
+
+    </script>
+
+    <script type="text/javascript">
+
+      let base64String = "";
+        
+        function imageUploaded() {
+
+            var file = document.querySelector(
+
+                'input[type=file]')['files'][0];
+          
+            var reader = new FileReader();
+
+            console.log("next");
+              
+            reader.onload = function () {
+
+                base64String = reader.result.replace("data:", "")
+
+                    .replace(/^.+,/, "");
+          
+                imageBase64Stringsep = base64String;
+
+                console.log(base64String);
+                alert(base64String);
+          
+            }
+
+            reader.readAsDataURL(file);
+        }
+
+
+    </script>
+    
+  </body>
+  
+</html>
